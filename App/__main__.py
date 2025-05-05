@@ -1,49 +1,11 @@
+from os import listdir, getcwd
 from textual.app import App, ComposeResult
 from textual.screen import Screen
 from textual.binding import Binding
 from textual.containers import Vertical
-from textual.widgets import Footer, Header, Button, Static, Label, Markdown
-
-# Obs:
-# Encapsular melhor as telas para diminuir a quantidade de código apenas nessa tela
-
-# Tela de input
-class InputScreen(Screen):
-    def compose(self) -> ComposeResult:
-
-        AVISOS = """
-# Formatação
-**A tabela deve ser frormatada com as seguintes colunas:**
-- Data de Ocorrência
-- Monitoramento
-- Servico
-- Manifestações Quantidade
-- Usuário
-- Título
-- Conteúdo
-- Link
-- Tipo Conteudo
-- Manifestacoes Detalhado
-- data_ultima_atualizacao
-- datacoleta
-
-# Observações
-
-- Atualmente aceitamos apenas arquivos em formato ".csv"
-- Coloque os arquivos que devem ser usados para a análise dentro da pasta inputs"
-        """        
-
-        yield Static("INPUT")
-        yield Markdown(AVISOS)
-
-        yield Footer(show_command_palette=False)
-        
-# Tela de input
-class OutputScreen(Screen):
-    def compose(self) -> ComposeResult:
-        yield Static("OUTPUT")
-
-        yield Footer(show_command_palette=False)
+from textual.widgets import Footer, Header, Button, Static, Markdown, ListView, ListItem, Label
+from input_screen import InputScreen
+from output_screen import OutputScreen
 
 # Classe que é responsável por rodar o app
 class App(App[str]):
