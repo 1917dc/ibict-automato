@@ -54,18 +54,19 @@ class App(App[str]):
 
 """
 
+
         yield Horizontal(
              Static(IBICT_ASCII, id="logo"),
-            Vertical(
-                Static("Menu", id="menu_top"),
-                Static("Páginas", id="title_landing"),
-                Vertical(
-                    Button("INPUT", id="input_button"),
-                    id="menu_button_box"
-                ),
-                id="menu_landing"
-            ),
-            id="layout"
+    Vertical(
+        Static("Menu", id="menu_top"),
+        Static("Páginas", id="title_landing"),
+        Vertical(  # Novo container apenas pro botão
+            Button("INPUT", id="input_button"),
+            id="button_box"
+        ),
+        id="menu_landing"
+    ),
+    id="layout"
         )
 
         yield Footer(show_command_palette=False)

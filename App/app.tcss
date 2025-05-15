@@ -6,29 +6,39 @@ Screen {
   layout: horizontal;
   width: 100%;
   height: 100%;
+  align: center middle;
 }
 
 #logo {
   width: 50%;
   content-align: center middle;
-  color: navy;
+  color: steelblue;
   padding: 1 2;
 }
 
 #menu_landing {
-  width: 50%;
+  width: 35%;
+  height: auto;
   layout: vertical;
   align: center middle;
   content-align: center middle;
-  padding: 2 1;
-  border: round white;
+  padding: 10 2;
+  border: round steelblue;
 }
+
+#button_box {
+  layout: horizontal;
+  align-horizontal: center;
+  content-align: center middle;
+}
+
 
 #menu_button_box {
   height: 100%;
   layout: vertical;
   align: center middle;
   content-align: center middle;
+  background: transparent;
 }
 
 Static#menu_top {
@@ -45,9 +55,11 @@ Static#title_landing {
 }
 
 Button {
-  background: darkgreen;
+  background: steelblue;
   color: white;
-  border: round;
+  border: white;
   padding: 1 4;
   margin: 1;
+  content-align: center middle;
+  align-horizontal: center;
 }
