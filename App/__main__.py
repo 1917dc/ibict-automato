@@ -2,8 +2,9 @@ from os import listdir, getcwd
 from textual.app import App, ComposeResult
 from textual.screen import Screen
 from textual.binding import Binding
-from textual.containers import Vertical
+from textual.containers import Horizontal, Vertical
 from textual.widgets import Footer, Header, Button, Static, Markdown, ListView, ListItem, Label
+
 from input_screen import InputScreen
 from output_screen import OutputScreen
 
@@ -17,15 +18,57 @@ class App(App[str]):
     ]
 
     def compose(self) -> ComposeResult:
-        yield Static("MENU")
         yield Header(icon="🤖")
-        yield Footer(show_command_palette=False)
 
-        yield Vertical(
-            Static("PÁGINAS", id="title_landing"),
-            Button("INPUT", id="input_button"), 
-            id="menu_landing"
+        IBICT_ASCII = r"""
+
+        
+            .--..                         ...             
+            .*%%%*-...              ...:==-..             
+            .*%%%%%%#+:...      ...-=**=..::.             
+            .*%%%%%%%%%#*=:...:-+##*-.:-=-:..             
+            .*%%%%%%%%%%%%%###%%*=-=**=:..--.             
+            .*%%%%%%%%%%%%%%%#=+#%*-..=*+:.               
+            .*%%%%%%%%%%%%%%#%#*=-+##=:.:-+=.             
+            .+%%%%%%%%%%%%%%#*+#%*=:-+**-.....           
+             .:+#%%%%%%%%%%%%#*++*##=:.-==-..            
+           :=:...:+#%%%%%%%%##%%#=:-*#*-....-=-..        
+        .=+...*#:.  .=#%%%%%%*-=%%%*:  .:+%%%%%%%+..     
+  ....:=-..-*+:.=#*=....=#%%%%%#+:...-+#%%%%%%%%%%%#+:..
+....:=-..=*=::+#+:-*%#=:...-=-:...-*%%%%%%%%%%%%%%%%%%#+-.
+.:==:..=+-.:**=:=##=-+#%#+:.  .=*%%%%%%%%%%%%%%%%%%%%%%*-.
+  ..-**-.:+#=-=##+=*%#++#%%: .*%#%%%%%%%%%%%%%%%%%%%#=:.. 
+      .+%#=.-#%+-*%%**%%%%%-.:#%+#%#%%%%%%%%%%%%%%+..     
+       ..=#%#+-*#%**%%%%%%%-.:#%-##*%##%%%%%%%##:.        
+          .:+#%#*#%%%%%%%%%-.:##:#*+%+*#*#%%*-.           
+           ..-#%%%%%%%%%%%%-.:#+:#++%=*#+#%=.             
+             .*%%%%%%%%%%%%-.:#-:#==#:**=##:.             
+             .*%%%%%%%%%%%%- :*::#-=#.++-##.              
+             .*%%%%%%%%%%%%- :*.:*:=+.++-#*.              
+             .+%%%%%%%%%%%%- :=.:+.+-.+=:#=               
+             .=%%%%%%%%%%%#. ::.:-.=:.+-:#:               
+             .-%%%%%%%%#+:.     ...-..=::*.               
+             .:%%%%%#=..          ....-.:=.               
+             .:#%#=..                ....-.               
+              .:..                      ..                
+
+"""
+
+        yield Horizontal(
+             Static(IBICT_ASCII, id="logo"),
+            Vertical(
+                Static("Menu", id="menu_top"),
+                Static("Páginas", id="title_landing"),
+                Vertical(
+                    Button("INPUT", id="input_button"),
+                    id="menu_button_box"
+                ),
+                id="menu_landing"
+            ),
+            id="layout"
         )
+
+        yield Footer(show_command_palette=False)
     
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "input_button":
