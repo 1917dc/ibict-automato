@@ -24,15 +24,12 @@ class App(App[str]):
         yield Vertical(
             Static("PÁGINAS", id="title_landing"),
             Button("INPUT", id="input_button"), 
-            Button("OUTPUT", id="output_button"),   
             id="menu_landing"
         )
     
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "input_button":
             self.push_screen(InputScreen())
-        elif event.button.id == "output_button":
-            self.push_screen(OutputScreen())
             
 
     def on_mount(self) -> None:
