@@ -11,7 +11,7 @@ Caso tenha clonado o projeto e queira rodar localmente siga o seguinte passo a p
 source .venv/bin/activate
 
 # Windows
-source .venv/bin/Activate.ps1
+. .venv\bin\Activate.ps1
 ```
 
 ### Instalação de dependências
@@ -19,7 +19,7 @@ source .venv/bin/Activate.ps1
 pip install -r requirements.txt
 ```
 
-### Acoplar dependências novas ao projeto
+### Acoplar dependências novas ao projeto (faça isso apenas caso adicione algum depêndencia nova)
 ```bash
 pip freeze > requirements.txt
 ```

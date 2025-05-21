@@ -21,6 +21,11 @@ from enelvo import normaliser
 # os dados pertinentes para o momento sao:
 # Titulo, Conteudo, Manifestacoes
 
+# TODO:
+# [ ] - Fazer dicionario de termos para serem ignorados pelo enelvo
+# [ ] - Filtragem de pontuacoes para tokenizacao dos tweets
+# [ ] - Remover emojis e caracteres indesejados (seria mesmo preciso?)
+
 class DataFilter():
     def data_normaliser(file_name: str) -> None:
 
@@ -41,4 +46,4 @@ class DataFilter():
 if __name__ == "__main__":
     data = DataFilter
 
-    data.data_normaliser("dados_500")
+    data.data_normaliser("dados")
