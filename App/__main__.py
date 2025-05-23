@@ -21,17 +21,17 @@ class AutomatoApp(QWidget):
 
         # Botão Menu
         self.menu_btn = QPushButton("Menu", self)
-        self.menu_btn.setGeometry(730, 160, 140, 80)  # ← Ajuste horizontal
+        self.menu_btn.setGeometry(730, 150, 140, 90)  # ← Ajuste horizontal
         self.menu_btn.setFont(QFont("Arial", 10, QFont.Weight.Bold))
 
         # Botão Páginas
         self.page_btn = QPushButton("Páginas", self)
-        self.page_btn.setGeometry(890, 160, 140, 80)
+        self.page_btn.setGeometry(890, 150, 140, 90)
         self.page_btn.setFont(QFont("Arial", 10, QFont.Weight.Bold))
 
         # Botão INPUT
         self.input_btn = QPushButton("INPUT", self)
-        self.input_btn.setGeometry(730, 270, 300, 130)
+        self.input_btn.setGeometry(730, 260, 300, 140)
         self.input_btn.setFont(QFont("Arial", 11, QFont.Weight.Bold))
 
         # Estilo unificado
